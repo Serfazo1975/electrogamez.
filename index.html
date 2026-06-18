@@ -247,6 +247,65 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
   .proyectos-grid{grid-template-columns:1fr}
   .services-grid{grid-template-columns:1fr}
 }
+.seg-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.8);align-items:center;justify-content:center;padding:16px}
+.seg-overlay.open{display:flex}
+.seg-modal{background:#0f172a;border:1px solid #1e3a5f;border-radius:20px;padding:28px;width:100%;max-width:480px}
+.seg-title{font-weight:800;font-size:1.15rem;margin-bottom:6px;background:linear-gradient(to right,#60a5fa,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.seg-sub{color:#6b7280;font-size:.85rem;margin-bottom:20px}
+.seg-input-row{display:flex;gap:8px;margin-bottom:16px}
+.seg-input{flex:1;background:#1e293b;border:1px solid #334155;border-radius:12px;padding:11px 16px;color:#fff;font-size:.95rem;font-family:monospace;outline:none;text-transform:uppercase;transition:border-color .2s}
+.seg-input:focus{border-color:#3b82f6}
+.btn-seg-buscar{display:flex;align-items:center;gap:6px;background:linear-gradient(to right,#2563eb,#06b6d4);color:#fff;padding:11px 18px;border-radius:12px;font-weight:700;font-size:.85rem;border:none;cursor:pointer;white-space:nowrap;transition:all .2s}
+.btn-seg-buscar:hover{opacity:.9}
+.seg-result{display:none;border-radius:14px;padding:18px;margin-bottom:12px}
+.seg-result.show{display:block}
+.seg-result.found{background:rgba(15,36,64,.8);border:1px solid #1e3a5f}
+.seg-result.notfound{background:rgba(127,29,29,.1);border:1px solid rgba(239,68,68,.25)}
+.seg-order-num{font-size:.75rem;color:#6b7280;font-family:monospace;margin-bottom:8px}
+.seg-device{font-weight:700;font-size:1.05rem;margin-bottom:4px}
+.seg-client{font-size:.85rem;color:#9ca3af;margin-bottom:14px}
+.seg-status-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.seg-status-badge{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;padding:6px 14px;border-radius:999px;border:1px solid}
+.seg-status-badge.recibido{background:rgba(37,99,235,.15);color:#60a5fa;border-color:rgba(37,99,235,.3)}
+.seg-status-badge.diagnostico{background:rgba(234,179,8,.15);color:#facc15;border-color:rgba(234,179,8,.3)}
+.seg-status-badge.reparando{background:rgba(249,115,22,.15);color:#fb923c;border-color:rgba(249,115,22,.3)}
+.seg-status-badge.listo{background:rgba(34,197,94,.15);color:#4ade80;border-color:rgba(34,197,94,.3)}
+.seg-status-badge.entregado{background:rgba(107,114,128,.15);color:#9ca3af;border-color:rgba(107,114,128,.3)}
+.seg-nota{font-size:.82rem;color:#9ca3af;background:rgba(255,255,255,.04);border-radius:8px;padding:10px 12px;line-height:1.5}
+.seg-wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#16a34a;color:#fff;padding:10px;border-radius:12px;font-size:.85rem;font-weight:600;margin-top:10px;transition:background .2s}
+.seg-wa-btn:hover{background:#15803d}
+.seg-close{display:flex;align-items:center;justify-content:center;width:100%;padding:9px;border:1px solid #1e3a5f;border-radius:12px;color:#6b7280;background:none;font-size:.85rem;cursor:pointer;margin-top:8px;transition:all .2s;font-family:inherit}
+.seg-close:hover{border-color:#374151;color:#fff}
+.seg-steps{display:flex;gap:4px;margin-bottom:14px}
+.seg-step{flex:1;height:5px;border-radius:999px;background:#1e293b;transition:background .4s}
+.seg-step.active{background:linear-gradient(to right,#3b82f6,#22d3ee)}
+.seg-step.done{background:#22d3ee}
+.rep-panel{display:none;margin-top:16px;border-top:1px solid #1e3a5f;padding-top:16px}
+.rep-panel.open{display:block}
+.rep-list{display:flex;flex-direction:column;gap:8px;max-height:220px;overflow-y:auto;margin-bottom:12px}
+.rep-item{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.82rem}
+.rep-item-info{flex:1;min-width:0}
+.rep-item-num{font-family:monospace;color:#60a5fa;font-size:.75rem}
+.rep-item-dev{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rep-item-actions{display:flex;gap:4px;flex-shrink:0}
+.btn-rep-edit{padding:5px;background:#0f172a;border:1px solid #334155;border-radius:8px;color:#9ca3af;cursor:pointer;transition:all .2s;display:flex}
+.btn-rep-edit:hover{color:#60a5fa;border-color:#3b82f6}
+.btn-rep-del{padding:5px;background:#0f172a;border:1px solid #334155;border-radius:8px;color:#9ca3af;cursor:pointer;transition:all .2s;display:flex}
+.btn-rep-del:hover{color:#f87171;border-color:rgba(239,68,68,.5)}
+.rep-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rep-form-grid .full{grid-column:1/-1}
+.rfg label{display:block;font-size:.72rem;color:#6b7280;margin-bottom:3px}
+.rfg input,.rfg select,.rfg textarea{width:100%;background:#1e293b;border:1px solid #334155;border-radius:10px;padding:7px 10px;font-size:.82rem;color:#fff;outline:none;font-family:inherit;transition:border-color .2s}
+.rfg input:focus,.rfg select:focus,.rfg textarea:focus{border-color:#3b82f6}
+.rfg select option{background:#1e293b}
+.rfg textarea{resize:none}
+.rep-form-btns{display:flex;gap:6px;margin-top:10px}
+.btn-rep-save{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;background:#0e7490;color:#fff;padding:8px;border-radius:10px;font-size:.82rem;font-weight:600;cursor:pointer;border:none;transition:background .2s}
+.btn-rep-save:hover{background:#0891b2}
+.btn-rep-cancel{padding:8px 12px;border:1px solid #334155;border-radius:10px;font-size:.82rem;color:#6b7280;cursor:pointer;background:none;font-family:inherit;transition:all .2s}
+.btn-rep-cancel:hover{color:#fff;border-color:#4b5563}
+.btn-nueva-rep{display:flex;align-items:center;gap:5px;background:rgba(14,116,144,.2);border:1px solid rgba(14,116,144,.4);color:#22d3ee;padding:7px 14px;border-radius:10px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;margin-bottom:10px}
+.btn-nueva-rep:hover{background:rgba(14,116,144,.35)}
 </style>
 </head>
 <body>
@@ -295,7 +354,7 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
       <a href="#contacto">Contacto</a>
     </div>
     <div class="nav-actions">
-      <a href="#contacto" class="btn-seguir"><svg width="14" height="14"><use href="#ic-search"/></svg> Seguir reparación</a>
+      <button onclick="openSeguimiento()" class="btn-seguir"><svg width="14" height="14"><use href="#ic-search"/></svg> Seguir reparación</button>
       <a href="https://wa.me/5491156975880" target="_blank" class="btn-wa-nav"><svg width="14" height="14"><use href="#ic-msg"/></svg> WhatsApp</a>
     </div>
     <button class="hamburger" onclick="toggleMenu()" id="ham-btn"><svg width="22" height="22"><use href="#ic-menu" id="ham-icon"/></svg></button>
@@ -321,7 +380,7 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
     <p>Diagnóstico express, reparaciones con garantía escrita y precios transparentes. Más de 10 años de experiencia en Rio Gallegos.</p>
     <div class="hero-btns">
       <a href="https://wa.me/5491156975880" target="_blank" class="btn-primary"><svg width="18" height="18"><use href="#ic-msg"/></svg> Consultar por WhatsApp</a>
-      <a href="#contacto" class="btn-secondary"><svg width="16" height="16"><use href="#ic-search"/></svg> Seguir mi reparación</a>
+      <button onclick="openSeguimiento()" class="btn-secondary"><svg width="16" height="16"><use href="#ic-search"/></svg> Seguir mi reparación</button>
       <a href="#novedades" class="btn-download-hero"><svg width="16" height="16"><use href="#ic-download"/></svg> Descargas gratuitas</a>
     </div>
     <div class="stats-grid">
@@ -336,7 +395,7 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
 <!-- ACCESOS RÁPIDOS -->
 <div class="accesos">
   <div class="accesos-grid">
-    <a href="#contacto" class="acceso-tile t-blue">
+    <a href="javascript:void(0)" onclick="openSeguimiento()" class="acceso-tile t-blue">
       <div class="acceso-icon blue"><svg width="16" height="16"><use href="#ic-search"/></svg></div>
       <div><div class="acceso-sub">Seguí tu equipo</div><div class="acceso-tit">Estado de reparación</div></div>
     </a>
@@ -523,9 +582,9 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
             <div class="contact-icon blue"><svg width="18" height="18"><use href="#ic-mail"/></svg></div>
             <div><div class="contact-sub">Email</div><div class="contact-main">Sergiofazzini@gmail.com</div></div>
           </a>
-          <a href="https://www.google.com/maps/search/Los+Pozos+458+Río+Gallegos+Argentina" target="_blank" class="contact-item c-red">
+          <a href="https://maps.app.goo.gl/2mXpzPJD2E8eNcWy8" target="_blank" class="contact-item c-red">
             <div class="contact-icon red"><svg width="18" height="18"><use href="#ic-pin"/></svg></div>
-            <div><div class="contact-sub">Dirección · Google Maps</div><div class="contact-main">Los Pozos 458, Rio Gallegos</div><div class="contact-mini">Ver en el mapa ↗</div></div>
+            <div><div class="contact-sub">Dirección · Google Maps</div><div class="contact-main">Los Pozos 458, Rio Gallegos</div><div class="contact-mini">Ver en el mapa · ⭐ Dejá tu reseña ↗</div></div>
           </a>
           <div class="contact-item">
             <div class="contact-icon cyan"><svg width="18" height="18"><use href="#ic-clock"/></svg></div>
@@ -534,7 +593,7 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
           <div>
             <div class="redes-label">Seguinos en redes</div>
             <div class="redes-btns">
-              <a href="https://www.instagram.com/electro_gamez/" target="_blank" class="btn-insta"><svg width="15" height="15" stroke="#f472b6"><use href="#ic-insta"/></svg> Instagram</a>
+              <a href="https://www.instagram.com/electro.gamez" target="_blank" class="btn-insta"><svg width="15" height="15" stroke="#f472b6"><use href="#ic-insta"/></svg> Instagram</a>
               <a href="https://www.facebook.com/Electrogamez.service.tecnico" target="_blank" class="btn-fb"><svg width="15" height="15" stroke="#60a5fa"><use href="#ic-fb"/></svg> Facebook</a>
             </div>
           </div>
@@ -557,6 +616,76 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
   </div>
 </section>
 
+<!-- MODAL SEGUIMIENTO -->
+<div class="seg-overlay" id="seg-overlay">
+  <div class="seg-modal">
+    <div class="seg-title">Seguimiento de reparación</div>
+    <div class="seg-sub">Ingresá tu número de orden para ver el estado</div>
+
+    <div class="seg-input-row">
+      <input type="text" class="seg-input" id="seg-input" placeholder="EG-2025-0001" maxlength="20" oninput="this.value=this.value.toUpperCase()" onkeydown="if(event.key==='Enter')buscarRep()"/>
+      <button class="btn-seg-buscar" onclick="buscarRep()"><svg width="14" height="14"><use href="#ic-search"/></svg> Buscar</button>
+    </div>
+
+    <!-- Resultado encontrado -->
+    <div class="seg-result" id="seg-found">
+      <div class="seg-steps" id="seg-steps"></div>
+      <div class="seg-order-num" id="seg-order-num"></div>
+      <div class="seg-device" id="seg-device"></div>
+      <div class="seg-client" id="seg-client"></div>
+      <div class="seg-status-row">
+        <div class="seg-status-badge" id="seg-badge"></div>
+      </div>
+      <div class="seg-nota" id="seg-nota"></div>
+      <a class="seg-wa-btn" id="seg-wa-link" href="#" target="_blank"><svg width="15" height="15"><use href="#ic-msg"/></svg> Consultar por WhatsApp</a>
+    </div>
+
+    <!-- No encontrado -->
+    <div class="seg-result notfound" id="seg-notfound">
+      <p style="color:#f87171;font-weight:600;margin-bottom:4px">Orden no encontrada</p>
+      <p style="color:#9ca3af;font-size:.83rem">Verificá el número o consultanos por WhatsApp.</p>
+      <a href="https://wa.me/5491156975880" target="_blank" class="seg-wa-btn" style="margin-top:10px"><svg width="15" height="15"><use href="#ic-msg"/></svg> Consultar por WhatsApp</a>
+    </div>
+
+    <!-- Panel admin reparaciones (oculto) -->
+    <div class="rep-panel" id="rep-panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <span style="font-size:.78rem;color:#22d3ee;font-weight:600">Panel Admin — Reparaciones</span>
+        <span style="font-size:.72rem;color:#4b5563" id="rep-count"></span>
+      </div>
+      <button class="btn-nueva-rep" onclick="abrirFormRep(null)"><svg width="13" height="13"><use href="#ic-plus"/></svg> Nueva reparación</button>
+      <div class="rep-list" id="rep-list"></div>
+
+      <!-- Formulario nueva/editar reparación -->
+      <div id="rep-form" style="display:none;background:#0f172a;border:1px solid #1e3a5f;border-radius:12px;padding:14px">
+        <div style="font-size:.82rem;font-weight:600;color:#22d3ee;margin-bottom:10px" id="rep-form-title">Nueva reparación</div>
+        <div class="rep-form-grid">
+          <div class="rfg"><label>N° Orden (ej: EG-2025-0001)</label><input id="rf-num" placeholder="EG-2025-0001" style="text-transform:uppercase" oninput="this.value=this.value.toUpperCase()"/></div>
+          <div class="rfg"><label>Estado</label>
+            <select id="rf-estado">
+              <option value="recibido">📥 Recibido</option>
+              <option value="diagnostico">🔍 En diagnóstico</option>
+              <option value="reparando">🔧 En reparación</option>
+              <option value="listo">✅ Listo para retirar</option>
+              <option value="entregado">📦 Entregado</option>
+            </select>
+          </div>
+          <div class="rfg"><label>Equipo</label><input id="rf-equipo" placeholder="PS5, Laptop HP, PC..."/></div>
+          <div class="rfg"><label>Cliente</label><input id="rf-cliente" placeholder="Nombre del cliente"/></div>
+          <div class="rfg"><label>Teléfono WhatsApp</label><input id="rf-tel" placeholder="5492966..."/></div>
+          <div class="rfg full"><label>Nota / Observación</label><textarea id="rf-nota" rows="2" placeholder="Falla detectada, presupuesto, etc..."></textarea></div>
+        </div>
+        <div class="rep-form-btns">
+          <button class="btn-rep-save" onclick="guardarRep()"><svg width="13" height="13"><use href="#ic-save"/></svg> Guardar</button>
+          <button class="btn-rep-cancel" onclick="cerrarFormRep()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="seg-close" onclick="closeSeguimiento()"><svg width="14" height="14"><use href="#ic-x"/></svg> Cerrar</button>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -565,8 +694,8 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
       ElectroGamez
     </div>
     <div class="footer-redes">
-      <a href="https://www.google.com/maps/search/Los+Pozos+458+Río+Gallegos+Argentina" target="_blank" class="maps" title="Google Maps"><svg width="18" height="18"><use href="#ic-pin"/></svg></a>
-      <a href="https://www.instagram.com/electro_gamez/" target="_blank" class="insta" title="Instagram"><svg width="18" height="18"><use href="#ic-insta"/></svg></a>
+      <a href="https://maps.app.goo.gl/2mXpzPJD2E8eNcWy8" target="_blank" class="maps" title="Google Maps"><svg width="18" height="18"><use href="#ic-pin"/></svg></a>
+      <a href="https://www.instagram.com/electro.gamez" target="_blank" class="insta" title="Instagram"><svg width="18" height="18"><use href="#ic-insta"/></svg></a>
       <a href="https://www.facebook.com/Electrogamez.service.tecnico" target="_blank" class="fb" title="Facebook"><svg width="18" height="18"><use href="#ic-fb"/></svg></a>
       <a href="https://wa.me/5491156975880" target="_blank" class="wa" title="WhatsApp"><svg width="18" height="18"><use href="#ic-msg"/></svg></a>
     </div>
@@ -675,6 +804,124 @@ function sendWA(){
   document.getElementById('form-success').classList.add('show')
 }
 
+
+const REP_KEY='eg_reparaciones'
+const ESTADOS={
+  recibido:{label:'📥 Recibido',cls:'recibido',step:1},
+  diagnostico:{label:'🔍 En diagnóstico',cls:'diagnostico',step:2},
+  reparando:{label:'🔧 En reparación',cls:'reparando',step:3},
+  listo:{label:'✅ Listo para retirar',cls:'listo',step:4},
+  entregado:{label:'📦 Entregado',cls:'entregado',step:5}
+}
+let reps=[], editingRepId=null
+
+function loadReps(){ try{ const s=localStorage.getItem(REP_KEY); if(s) reps=JSON.parse(s) }catch{ reps=[] } }
+function saveReps(){ localStorage.setItem(REP_KEY,JSON.stringify(reps)) }
+
+function openSeguimiento(){
+  loadReps()
+  document.getElementById('seg-overlay').classList.add('open')
+  document.getElementById('seg-input').focus()
+  document.getElementById('seg-found').classList.remove('show')
+  document.getElementById('seg-notfound').classList.remove('show')
+  document.getElementById('seg-input').value=''
+}
+function closeSeguimiento(){ document.getElementById('seg-overlay').classList.remove('open') }
+
+function buscarRep(){
+  const num=document.getElementById('seg-input').value.trim().toUpperCase()
+  if(!num) return
+  loadReps()
+  const rep=reps.find(r=>r.num.toUpperCase()===num)
+  document.getElementById('seg-found').classList.remove('show')
+  document.getElementById('seg-notfound').classList.remove('show')
+  if(rep){
+    const est=ESTADOS[rep.estado]||ESTADOS.recibido
+    const steps=document.getElementById('seg-steps')
+    steps.innerHTML=[1,2,3,4,5].map(i=>`<div class="seg-step${i<est.step?' done':i===est.step?' active':''}"></div>`).join('')
+    document.getElementById('seg-order-num').textContent='Orden: '+rep.num
+    document.getElementById('seg-device').textContent=rep.equipo||'Equipo sin especificar'
+    document.getElementById('seg-client').textContent=rep.cliente?'Cliente: '+rep.cliente:''
+    const badge=document.getElementById('seg-badge')
+    badge.textContent=est.label
+    badge.className='seg-status-badge '+est.cls
+    document.getElementById('seg-nota').textContent=rep.nota||'Sin observaciones adicionales.'
+    const tel=rep.tel||'5491156975880'
+    const msg=encodeURIComponent('Hola! Consulto por mi reparación '+rep.num+' ('+rep.equipo+'). Estado actual: '+est.label)
+    document.getElementById('seg-wa-link').href='https://wa.me/'+tel+'?text='+msg
+    document.getElementById('seg-found').classList.add('show')
+  } else {
+    document.getElementById('seg-notfound').classList.add('show')
+  }
+}
+
+function renderRepList(){
+  const list=document.getElementById('rep-list')
+  document.getElementById('rep-count').textContent=reps.length+' reparación'+(reps.length!==1?'es':'')
+  if(!reps.length){ list.innerHTML='<div style="text-align:center;color:#4b5563;font-size:.82rem;padding:16px">No hay reparaciones cargadas</div>'; return }
+  list.innerHTML=[...reps].reverse().map(r=>`
+    <div class="rep-item">
+      <div class="rep-item-info">
+        <div class="rep-item-num">${r.num}</div>
+        <div class="rep-item-dev">${r.equipo||'Sin equipo'} · ${r.cliente||'Sin nombre'}</div>
+        <div style="font-size:.72rem;color:#6b7280;margin-top:2px">${(ESTADOS[r.estado]||ESTADOS.recibido).label}</div>
+      </div>
+      <div class="rep-item-actions">
+        <button class="btn-rep-edit" onclick="abrirFormRep('${r.id}')"><svg width="13" height="13"><use href="#ic-edit"/></svg></button>
+        <button class="btn-rep-del" onclick="eliminarRep('${r.id}')"><svg width="13" height="13"><use href="#ic-trash"/></svg></button>
+      </div>
+    </div>`).join('')
+}
+
+function abrirFormRep(id){
+  editingRepId=id
+  const form=document.getElementById('rep-form')
+  form.style.display='block'
+  if(id){
+    const r=reps.find(x=>x.id===id)
+    if(!r) return
+    document.getElementById('rep-form-title').textContent='Editar reparación'
+    document.getElementById('rf-num').value=r.num
+    document.getElementById('rf-estado').value=r.estado
+    document.getElementById('rf-equipo').value=r.equipo
+    document.getElementById('rf-cliente').value=r.cliente
+    document.getElementById('rf-tel').value=r.tel
+    document.getElementById('rf-nota').value=r.nota
+  } else {
+    document.getElementById('rep-form-title').textContent='Nueva reparación'
+    const nextNum='EG-2026-'+String(101+reps.length).padStart(4,'0')
+    document.getElementById('rf-num').value=nextNum
+    document.getElementById('rf-estado').value='recibido'
+    ;['rf-equipo','rf-cliente','rf-tel','rf-nota'].forEach(id=>document.getElementById(id).value='')
+  }
+}
+function cerrarFormRep(){ document.getElementById('rep-form').style.display='none'; editingRepId=null }
+
+function guardarRep(){
+  const num=document.getElementById('rf-num').value.trim().toUpperCase()
+  if(!num){ alert('El número de orden es obligatorio'); return }
+  const data={ id:editingRepId||Date.now().toString(), num, estado:document.getElementById('rf-estado').value, equipo:document.getElementById('rf-equipo').value.trim(), cliente:document.getElementById('rf-cliente').value.trim(), tel:document.getElementById('rf-tel').value.trim(), nota:document.getElementById('rf-nota').value.trim() }
+  if(editingRepId){ reps=reps.map(r=>r.id===editingRepId?data:r) }
+  else { reps.push(data) }
+  saveReps(); renderRepList(); cerrarFormRep()
+}
+function eliminarRep(id){ if(!confirm('¿Eliminar esta reparación?')) return; reps=reps.filter(r=>r.id!==id); saveReps(); renderRepList() }
+
+// Activar panel admin desde seguimiento (clic 5 veces en el título)
+let segClicks=0
+document.addEventListener('DOMContentLoaded',()=>{
+  const title=document.querySelector('.seg-title')
+  if(title) title.addEventListener('click',()=>{
+    segClicks++
+    if(segClicks>=5){
+      segClicks=0
+      if(!adminMode){ openAdminLogin(); return }
+      loadReps(); renderRepList()
+      const panel=document.getElementById('rep-panel')
+      panel.classList.toggle('open')
+    }
+  })
+})
 loadApps(); renderFiltros(); renderApps()
 </script>
 </body>
