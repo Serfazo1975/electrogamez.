@@ -21,8 +21,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(3,7,18,.92);b
 .nav-links a{font-size:.85rem;font-weight:500;color:#9ca3af;transition:color .2s}
 .nav-links a:hover{color:#fff}
 .nav-actions{display:flex;gap:8px;align-items:center}
-.btn-seguir{display:flex;align-items:center;gap:6px;border:1px solid #374151;color:#d1d5db;padding:7px 14px;border-radius:10px;font-size:.82rem;transition:all .2s}
-.btn-seguir:hover{border-color:#6b7280;color:#fff}
+.btn-seguir{display:flex;align-items:center;gap:6px;background:linear-gradient(to right,#ea580c,#f97316);color:#fff;border:none;padding:7px 14px;border-radius:10px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;box-shadow:0 4px 12px rgba(234,88,12,.3)}
+.btn-seguir:hover{background:linear-gradient(to right,#c2410c,#ea580c)}
 .btn-wa-nav{display:flex;align-items:center;gap:6px;background:#16a34a;color:#fff;padding:7px 14px;border-radius:10px;font-size:.82rem;font-weight:600;transition:background .2s}
 .btn-wa-nav:hover{background:#15803d}
 .hamburger{display:none;background:none;border:none;color:#9ca3af;cursor:pointer;padding:4px}
@@ -47,8 +47,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(3,7,18,.92);b
 .hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:56px}
 .btn-primary{display:flex;align-items:center;gap:8px;background:linear-gradient(to right,#2563eb,#06b6d4);color:#fff;padding:13px 28px;border-radius:12px;font-weight:700;font-size:.9rem;transition:all .2s;box-shadow:0 8px 24px rgba(37,99,235,.2)}
 .btn-primary:hover{background:linear-gradient(to right,#1d4ed8,#0891b2)}
-.btn-secondary{display:flex;align-items:center;gap:8px;background:#1f2937;color:#e5e7eb;border:1px solid #374151;padding:13px 28px;border-radius:12px;font-weight:500;font-size:.9rem;transition:all .2s}
-.btn-secondary:hover{background:#111827;border-color:#4b5563}
+.btn-secondary{display:flex;align-items:center;gap:8px;background:linear-gradient(to right,#ea580c,#f97316);color:#fff;border:none;padding:13px 28px;border-radius:12px;font-weight:700;font-size:.9rem;transition:all .2s;box-shadow:0 8px 24px rgba(234,88,12,.25)}
+.btn-secondary:hover{background:linear-gradient(to right,#c2410c,#ea580c);box-shadow:0 8px 24px rgba(234,88,12,.4)}
 .btn-download-hero{display:flex;align-items:center;gap:8px;background:rgba(22,78,99,.35);color:#67e8f9;border:1px solid rgba(6,182,212,.45);padding:13px 28px;border-radius:12px;font-weight:500;font-size:.9rem;transition:all .2s}
 .btn-download-hero:hover{background:rgba(22,78,99,.6);border-color:rgba(6,182,212,.7);color:#fff}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
@@ -392,24 +392,6 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
   </div>
 </section>
 
-<!-- ACCESOS RÁPIDOS -->
-<div class="accesos">
-  <div class="accesos-grid">
-    <a href="javascript:void(0)" onclick="openSeguimiento()" class="acceso-tile t-blue">
-      <div class="acceso-icon blue"><svg width="16" height="16"><use href="#ic-search"/></svg></div>
-      <div><div class="acceso-sub">Seguí tu equipo</div><div class="acceso-tit">Estado de reparación</div></div>
-    </a>
-    <a href="#novedades" class="acceso-tile t-cyan">
-      <div class="acceso-icon cyan"><svg width="16" height="16"><use href="#ic-download"/></svg></div>
-      <div><div class="acceso-sub">100% gratuito</div><div class="acceso-tit">Herramientas y descargas</div></div>
-    </a>
-    <a href="#proyectos" class="acceso-tile t-violet">
-      <div class="acceso-icon violet"><svg width="16" height="16"><use href="#ic-globe"/></svg></div>
-      <div><div class="acceso-sub">Apps en producción</div><div class="acceso-tit">Nuestros proyectos</div></div>
-    </a>
-  </div>
-</div>
-
 <!-- SERVICIOS -->
 <section id="servicios">
   <div class="section-inner">
@@ -705,21 +687,31 @@ footer{border-top:1px solid rgba(31,41,55,.6);padding:36px 16px}
 </footer>
 
 <script>
-const ADMIN_PASS='electrogamez2025'
+const ADMIN_PASS='Serfazo.1975'
 const STORAGE_KEY='eg_apps_novedades'
 const CATEGORIAS=['Todos','Utilidades','Seguridad','Multimedia','Juegos','Drivers','Oficina','Sistema']
 let apps=[], adminMode=false, filtroActivo='Todos', editingId=null
 
 function loadApps(){
-  try{ const s=localStorage.getItem(STORAGE_KEY); if(s){ apps=JSON.parse(s); return } }catch{}
+  try{
+    const v=localStorage.getItem(STORAGE_KEY+'_ver')
+    const s=localStorage.getItem(STORAGE_KEY)
+    if(s && v===APPS_VERSION){ apps=JSON.parse(s); return }
+  }catch{}
   apps=[
-    {id:'1',titulo:'Revo Uninstaller',descripcion:'Desinstalador avanzado que elimina completamente programas y sus residuos del registro. Ideal para mantener el PC limpio.',imagen:'https://www.revouninstaller.com/wp-content/uploads/2021/06/revo-uninstaller-free-icon.png',linkDescarga:'https://www.revouninstaller.com/revo-uninstaller-free-download/',sitioFuente:'revouninstaller.com',categoria:'Utilidades',fechaAgregado:new Date().toISOString(),destacado:true},
-    {id:'2',titulo:'HWMonitor',descripcion:'Monitorea temperaturas, voltajes y velocidades de ventiladores en tiempo real. Imprescindible para diagnóstico.',imagen:'https://www.cpuid.com/medias/images/softwares/hwmonitor-pro.png',linkDescarga:'https://www.cpuid.com/softwares/hwmonitor.html',sitioFuente:'cpuid.com',categoria:'Utilidades',fechaAgregado:new Date().toISOString(),destacado:false},
-    {id:'3',titulo:'Malwarebytes Free',descripcion:'Detecta y elimina malware, ransomware y spyware. Versión gratuita ideal para escaneos puntuales.',imagen:'https://images.malwarebytes.com/web/2023/05/mb-icon-512.png',linkDescarga:'https://www.malwarebytes.com/mwb-download',sitioFuente:'malwarebytes.com',categoria:'Seguridad',fechaAgregado:new Date().toISOString(),destacado:true}
+    {id:'1',titulo:'TeamViewer',descripcion:'Control remoto de PC y asistencia técnica a distancia. El técnico puede conectarse a tu equipo para ayudarte sin necesidad de estar presente.',imagen:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/TeamViewer_Logo.svg/320px-TeamViewer_Logo.svg.png',linkDescarga:'https://www.teamviewer.com/es/descarga/windows/',sitioFuente:'teamviewer.com',categoria:'Utilidades',fechaAgregado:new Date().toISOString(),destacado:true},
+    {id:'2',titulo:'AnyDesk',descripcion:'Alternativa liviana a TeamViewer para acceso remoto ultrarrápido. Ideal para soporte técnico y trabajo desde casa.',imagen:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/AnyDesk_Logo.svg/320px-AnyDesk_Logo.svg.png',linkDescarga:'https://anydesk.com/es/downloads/windows',sitioFuente:'anydesk.com',categoria:'Utilidades',fechaAgregado:new Date().toISOString(),destacado:true},
+    {id:'3',titulo:'Driver Booster',descripcion:'Actualiza automáticamente todos los drivers desactualizados de tu PC. Mejora el rendimiento y soluciona problemas de hardware con un solo clic.',imagen:'https://www.iobit.com/images/iobit-logo.png',linkDescarga:'https://www.iobit.com/es/driver-booster.php',sitioFuente:'iobit.com',categoria:'Drivers',fechaAgregado:new Date().toISOString(),destacado:false},
+    {id:'4',titulo:'CrystalDiskInfo',descripcion:'Monitorea la salud de tus discos rígidos y SSD en tiempo real. Detecta fallos inminentes antes de perder tu información.',imagen:'https://crystalmark.info/resource/CrystalDiskInfo/crystal_disk_info_logo.png',linkDescarga:'https://crystalmark.info/en/software/crystaldiskinfo/',sitioFuente:'crystalmark.info',categoria:'Utilidades',fechaAgregado:new Date().toISOString(),destacado:false},
+    {id:'5',titulo:'Rufus',descripcion:'Crea pendrives bootables de Windows, Linux y más en minutos. Rápido, portable y sin instalación. Imprescindible para reinstalar sistemas operativos.',imagen:'https://rufus.ie/pics/rufus-128.png',linkDescarga:'https://rufus.ie/es/',sitioFuente:'rufus.ie',categoria:'Sistema',fechaAgregado:new Date().toISOString(),destacado:true},
+    {id:'6',titulo:'Ventoy',descripcion:'Crea un pendrive multiarranque con varios ISOs a la vez. Copiás los archivos ISO directamente sin necesidad de formatear cada vez.',imagen:'https://www.ventoy.net/static/img/ventoy.png',linkDescarga:'https://www.ventoy.net/en/download.html',sitioFuente:'ventoy.net',categoria:'Sistema',fechaAgregado:new Date().toISOString(),destacado:false}
   ]
   saveApps()
 }
-function saveApps(){ localStorage.setItem(STORAGE_KEY,JSON.stringify(apps)) }
+function saveApps(){
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(apps))
+  localStorage.setItem(STORAGE_KEY+'_ver',APPS_VERSION)
+}
 
 function renderFiltros(){
   document.getElementById('filtros-container').innerHTML=CATEGORIAS.map(c=>`<button class="filtro-btn${c===filtroActivo?' active':''}" onclick="setFiltro('${c}')">${c}</button>`).join('')
@@ -806,6 +798,7 @@ function sendWA(){
 
 
 const REP_KEY='eg_reparaciones'
+const APPS_VERSION='v2'
 const ESTADOS={
   recibido:{label:'📥 Recibido',cls:'recibido',step:1},
   diagnostico:{label:'🔍 En diagnóstico',cls:'diagnostico',step:2},
